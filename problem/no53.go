@@ -2,7 +2,7 @@ package problem
 
 import "math"
 
-//Solution53 ...
+//Solution53 最大子序和
 func Solution53()  {
 	nums := []int{-2,1,-3,4,-1,2,1,-5,4}
 	print(maxSubArray2(nums))

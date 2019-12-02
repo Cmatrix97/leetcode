@@ -2,7 +2,7 @@ package problem
 
 import "sort"
 
-//Solution88 ...
+//Solution88 合并两个有序数组
 func  Solution88()  {
 	nums1 := []int{1,2,3,0,0,0}
 	nums2 := []int{2,5,6}

@@ -1,6 +1,6 @@
 package problem
 
-//Solution26 ...
+//Solution26 删除排序数组中的重复项
 func Solution26()  {
 	nums := []int{0,0,1,1,1,2,2,3,3,4}
 	length := removeDuplicates(nums)

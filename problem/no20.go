@@ -1,6 +1,6 @@
 package problem
 
-//Solution20 ...
+//Solution20 有效的括号
 func Solution20()  {
 	s := "()[]{}"
 	println(isValid1(s))
