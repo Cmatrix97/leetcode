@@ -8,7 +8,7 @@ func Solution121()  {
 	println(maxProfit2(prices))
 }
 
-/*动态规划法
+/**动态规划法
 f(x) = max{f(x-1), x-min(x-1)}
 */
 func maxProfit1(prices []int) int {
@@ -25,7 +25,7 @@ func maxProfit1(prices []int) int {
 	return dp[len(prices) - 1]
 }
 
-/*动态规划法
+/**动态规划法
 优化写法
 */
 func maxProfit2(prices []int) int {

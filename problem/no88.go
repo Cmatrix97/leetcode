@@ -15,14 +15,14 @@ func  Solution88()  {
 	}
 }
 
-/*先合并后排序
+/**先合并后排序
 */
 func merge1(nums1 []int, m int, nums2 []int, n int)  {
 	copy(nums1[m:], nums2[:])
 	sort.Ints(nums1)
 }
 
-/*双指针
+/**双指针
 */
 func merge2(nums1 []int, m int, nums2 []int, n int)  {
 	nums1Copy := make([]int, m)

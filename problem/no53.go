@@ -8,7 +8,7 @@ func Solution53()  {
 	print(maxSubArray2(nums))
 }
 
-/*动态规划法
+/**动态规划法
 1.f(x) = max{f(x-1),x的从后向前(必须包含最后一项)最大子序和}
 2.x的从后向前最大子序和=max{x-1的从后向前最大子序和,x-1的从后向前最大子序和+nums[x]}
 */
@@ -29,7 +29,7 @@ func maxSubArray1(nums []int) int {
 	return dp[len(nums)-1][0]
 }
 
-/*动态规划法
+/**动态规划法
 优化写法
 空间复杂度由O(n)降为O(1)
 */

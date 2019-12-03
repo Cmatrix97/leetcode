@@ -29,7 +29,7 @@ type TreeNode struct {
 	     Right *TreeNode
 }
 
-/*DFS
+/**DFS
 左右子树最大高度+1
 */
  func maxDepth(root *TreeNode) int {
