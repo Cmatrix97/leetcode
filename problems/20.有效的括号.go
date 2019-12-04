@@ -1,10 +1,8 @@
-package problem
-
-//Solution20 有效的括号
-func Solution20()  {
-	s := "()[]{}"
-	println(isValid1(s))
-}
+/*
+ * @lc app=leetcode.cn id=20 lang=golang
+ *
+ * [20] 有效的括号
+ */
 
 /**栈的简单应用
 1.如果当前字符为左括号时，则将其压入栈中
@@ -13,6 +11,10 @@ func Solution20()  {
 (2)若此时栈为空，则直接返回false
 (3)若不为对应的左半边括号，反之返回false
 */
+package problems
+
+import "fmt"
+
 func isValid1(s string) bool {
 	stack, top := []rune{}, 0
 	stack = make([]rune, 10000)
@@ -20,7 +22,7 @@ func isValid1(s string) bool {
 		if v == '(' || v == '[' || v == '{' {
 			stack[top] = v
 			top++
-		} else if v == ')' || v == ']' || v =='}' {
+		} else if v == ')' || v == ']' || v == '}' {
 			if top == 0 {
 				return false
 			}
@@ -37,11 +39,12 @@ func isValid1(s string) bool {
 	return true
 }
 
-func isValid2(s string) bool  {
-	m := map[rune]rune {
-		')' : '(',
-		']' : '[',
-		'}' : '{',
+// @lc code=start
+func isValid(s string) bool {
+	m := map[rune]rune{
+		')': '(',
+		']': '[',
+		'}': '{',
 	}
 	stack := []rune{}
 	for _, v := range s {
@@ -63,4 +66,11 @@ func isValid2(s string) bool  {
 		return false
 	}
 	return true
+}
+
+// @lc code=end
+
+func Solution20() {
+	s := "()[]{}"
+	fmt.Println(isValid(s))
 }

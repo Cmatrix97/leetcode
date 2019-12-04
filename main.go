@@ -1,7 +1,7 @@
 package main
 
-import "github.com/Cmatrix97/leetcode/problem"
+import "github.com/Cmatrix97/leetcode/problems"
 
-func main()  {
-	problem.Solution167()
+func main() {
+	problems.Solution190()
 }

@@ -1,15 +1,13 @@
-package problem
+/*
+ * @lc app=leetcode.cn id=26 lang=golang
+ *
+ * [26] 删除排序数组中的重复项
+ */
+package problems
 
-//Solution26 删除排序数组中的重复项
-func Solution26()  {
-	nums := []int{0,0,1,1,1,2,2,3,3,4}
-	length := removeDuplicates(nums)
-	println(length)
-	for _, v := range nums {
-		print(v)
-	}
-}
+import "fmt"
 
+// @lc code=start
 /**快慢双指针
 1.开始时都指向第二个数字
 2.(1)如果快指针所指数字与前一个数字相同，则快指针向前走一步
@@ -29,4 +27,15 @@ func removeDuplicates(nums []int) int {
 		j++
 	}
 	return j
+}
+
+// @lc code=end
+
+func Solution26() {
+	nums := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
+	length := removeDuplicates(nums)
+	fmt.Println(length)
+	for _, v := range nums {
+		fmt.Print(v)
+	}
 }
