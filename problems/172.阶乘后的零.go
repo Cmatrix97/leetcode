@@ -7,7 +7,7 @@ package problems
 
 import "fmt"
 
-/**
+/*
 生成末尾0的唯一途径是2 * 5
 而5的数量必然比2少
 因此所求可转化为求5的数量
@@ -24,7 +24,7 @@ func trailingZeroes1(n int) int {
 }
 
 // @lc code=start
-/**
+/*
 n/5 + n/25 + n/125 + ...
 */
 func trailingZeroes(n int) int {

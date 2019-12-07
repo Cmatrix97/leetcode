@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-/**暴力法
+/*暴力法
  */
 func threeSum1(nums []int) [][]int {
 	res := [][]int{}
@@ -38,7 +38,7 @@ func threeSum1(nums []int) [][]int {
 }
 
 // @lc code=start
-/**排序双指针
+/*排序双指针
  */
 func threeSum(nums []int) [][]int {
 	sort.Ints(nums)
@@ -71,7 +71,7 @@ func threeSum(nums []int) [][]int {
 
 // @lc code=end
 
-/**参考某大神的Java代码
+/*参考某大神的Java代码
  */
 func threeSum3(nums []int) [][]int {
 	res := [][]int{}

@@ -8,7 +8,7 @@ package problems
 import "fmt"
 
 // @lc code=start
-/**异或运算
+/*异或运算
 1.两个相同的数异或为0    t ^ t = 0
 2.0异或一个数等于那个数  0 ^ t = t
 */

@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-/**二次遍历（算ToLower三次）
+/*二次遍历（算ToLower三次）
  */
 func isPalindrome1(s string) bool {
 	s = strings.ToLower(s)
@@ -32,7 +32,7 @@ func isPalindrome1(s string) bool {
 }
 
 // @lc code=start
-/**双指针一次遍历
+/*双指针一次遍历
 空间复杂度O(1)
 */
 func isPalindrome(s string) bool {

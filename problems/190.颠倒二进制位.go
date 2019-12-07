@@ -20,7 +20,7 @@ func reverseBits(num uint32) uint32 {
 // @lc code=end
 
 func Solution190() {
-	var num uint32 = 43261596
+	var num uint32 = 0b00000010100101000001111010011100
 	res := reverseBits(num)
 	fmt.Print(res)
 }

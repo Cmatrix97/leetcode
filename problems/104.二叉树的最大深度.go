@@ -10,13 +10,6 @@ import (
 	"math"
 )
 
-//TreeNode 二叉树节点
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -26,7 +19,7 @@ type TreeNode struct {
  *     Right *TreeNode
  * }
  */
-/**DFS
+/*DFS
 左右子树最大高度+1
 */
 func maxDepth(root *TreeNode) int {

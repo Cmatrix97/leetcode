@@ -10,7 +10,7 @@ import (
 	"sort"
 )
 
-/**哈希表
+/*哈希表
  */
 func majorityElement1(nums []int) int {
 	m := make(map[int]int)
@@ -26,7 +26,7 @@ func majorityElement1(nums []int) int {
 	return res
 }
 
-/**排序后中位数
+/*排序后中位数
  */
 func majorityElement2(nums []int) int {
 	sort.Ints(nums)
@@ -34,7 +34,7 @@ func majorityElement2(nums []int) int {
 }
 
 // @lc code=start
-/**Boyer-Moore 投票算法
+/*Boyer-Moore 投票算法
  */
 func majorityElement(nums []int) int {
 	var candidate int

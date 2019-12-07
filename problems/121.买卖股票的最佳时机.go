@@ -10,7 +10,7 @@ import (
 	"math"
 )
 
-/**动态规划法
+/*动态规划法
 f(x) = max{f(x-1), x-min(x-1)}
 */
 func maxProfit1(prices []int) int {
@@ -28,7 +28,7 @@ func maxProfit1(prices []int) int {
 }
 
 // @lc code=start
-/**动态规划法
+/*动态规划法
 优化写法
 */
 func maxProfit_121(prices []int) int {

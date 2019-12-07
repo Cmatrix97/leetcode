@@ -8,7 +8,7 @@ package problems
 import "fmt"
 
 // @lc code=start
-/**利用map
+/*利用map
 1.遍历时向map中存储key=当前数字,value=坐标
 2.同时查询map中是否有key=target-当前数字,如果有，当前的遍历的index和map[key]即所求
 */

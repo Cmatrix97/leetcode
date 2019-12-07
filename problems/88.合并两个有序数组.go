@@ -10,7 +10,7 @@ import (
 	"sort"
 )
 
-/**先合并后排序
+/*先合并后排序
  */
 func merge1(nums1 []int, m int, nums2 []int, n int) {
 	copy(nums1[m:], nums2[:])
@@ -18,7 +18,7 @@ func merge1(nums1 []int, m int, nums2 []int, n int) {
 }
 
 // @lc code=start
-/**双指针
+/*双指针
  */
 func merge(nums1 []int, m int, nums2 []int, n int) {
 	nums1Copy := make([]int, m)
