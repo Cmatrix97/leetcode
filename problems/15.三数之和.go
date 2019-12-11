@@ -7,7 +7,6 @@ package problems
 
 import (
 	"fmt"
-	"math"
 	"sort"
 	"strings"
 )
@@ -37,10 +36,9 @@ func threeSum1(nums []int) [][]int {
 	return res
 }
 
-// @lc code=start
 /*排序双指针
  */
-func threeSum(nums []int) [][]int {
+func threeSum2(nums []int) [][]int {
 	sort.Ints(nums)
 	res := [][]int{}
 	for i := 0; i < len(nums)-2 && nums[i] <= 0; i++ {
@@ -69,97 +67,14 @@ func threeSum(nums []int) [][]int {
 	return res
 }
 
+// @lc code=start
+
 // @lc code=end
-
-/*参考某大神的Java代码
- */
-func threeSum3(nums []int) [][]int {
-	res := [][]int{}
-	if len(nums) < 3 {
-		return res
-	}
-	minValue, maxValue := math.MaxInt64, math.MinInt64
-	negSize, posSize, zeroSize := 0, 0, 0
-	for _, v := range nums {
-		if v < minValue {
-			minValue = v
-		}
-		if v > maxValue {
-			maxValue = v
-		}
-		if v > 0 {
-			posSize++
-		} else if v < 0 {
-			negSize++
-		} else {
-			zeroSize++
-		}
-	}
-	if zeroSize >= 3 {
-		res = append(res, []int{0, 0, 0})
-	}
-	if negSize == 0 || posSize == 0 {
-		return res
-	}
-	if minValue*2+maxValue > 0 {
-		maxValue = -minValue * 2
-	} else if maxValue*2+minValue < 0 {
-		minValue = -maxValue * 2
-	}
-	m := make([]int, maxValue-minValue+1)
-	negs, poss := []int{}, []int{}
-	for _, v := range nums {
-		if v < minValue || v > maxValue {
-			continue
-		}
-		if m[v-minValue] == 0 {
-			if v > 0 {
-				poss = append(poss, v)
-			} else if v < 0 {
-				negs = append(negs, v)
-			}
-		}
-		m[v-minValue]++
-	}
-	sort.Ints(poss)
-	sort.Ints(negs)
-	basej := 0
-	for i := len(negs) - 1; i >= 0; i-- {
-		nv := negs[i]
-		minp := (-nv) >> 1
-		for basej < len(poss) && poss[basej] < minp {
-			basej++
-		}
-		for j := basej; j < len(poss); j++ {
-			pv := poss[j]
-			cv := -nv - pv
-			if cv >= nv && cv <= pv {
-				if cv == nv {
-					if m[nv-minValue] > 1 {
-						res = append(res, []int{nv, nv, pv})
-					}
-				} else if cv == pv {
-					if m[pv-minValue] > 1 {
-						res = append(res, []int{nv, pv, pv})
-					}
-				} else {
-					if m[cv-minValue] > 0 {
-						res = append(res, []int{nv, cv, pv})
-					}
-				}
-			} else if cv < nv {
-				break
-			}
-		}
-	}
-	return res
-}
-
-func Solution15() {
+func Solve15() {
 	nums := []int{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}
 	//nums := []int{1,2,-2,-1}
 	//nums := []int{-1, 0, 1, 2, -1, -4}
-	res := threeSum(nums)
+	res := threeSum1(nums)
 	for _, arr := range res {
 		for _, v := range arr {
 			fmt.Print(v, " ")

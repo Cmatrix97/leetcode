@@ -39,8 +39,7 @@ func isValid1(s string) bool {
 	return true
 }
 
-// @lc code=start
-func isValid(s string) bool {
+func isValid2(s string) bool {
 	m := map[rune]rune{
 		')': '(',
 		']': '[',
@@ -68,9 +67,11 @@ func isValid(s string) bool {
 	return true
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution20() {
+func Solve20() {
 	s := "()[]{}"
-	fmt.Println(isValid(s))
+	fmt.Println(isValid1(s))
 }

@@ -7,7 +7,6 @@ package problems
 
 import "fmt"
 
-// @lc code=start
 /*快慢双指针
 1.开始时都指向第二个数字
 2.(1)如果快指针所指数字与前一个数字相同，则快指针向前走一步
@@ -29,9 +28,11 @@ func removeDuplicates(nums []int) int {
 	return j
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution26() {
+func Solve26() {
 	nums := []int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}
 	length := removeDuplicates(nums)
 	fmt.Println(length)

@@ -21,8 +21,7 @@ func hammingWeight1(num uint32) int {
 	return count
 }
 
-// @lc code=start
-func hammingWeight(num uint32) int {
+func hammingWeight2(num uint32) int {
 	count := 0
 	for num != 0 {
 		count++
@@ -31,9 +30,11 @@ func hammingWeight(num uint32) int {
 	return count
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution191() {
+func Solve191() {
 	var num uint32 = 0b11110000111
-	fmt.Println(hammingWeight(num))
+	fmt.Println(hammingWeight1(num))
 }

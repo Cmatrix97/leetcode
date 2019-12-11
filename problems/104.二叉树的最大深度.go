@@ -10,7 +10,6 @@ import (
 	"math"
 )
 
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -29,9 +28,11 @@ func maxDepth(root *TreeNode) int {
 	return int(math.Max(float64(maxDepth(root.Left)), float64(maxDepth(root.Right)))) + 1
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution104() {
+func Solve104() {
 	root := &TreeNode{
 		Val: 3,
 		Left: &TreeNode{

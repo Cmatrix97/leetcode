@@ -21,7 +21,6 @@ func reverseList1(head *ListNode) *ListNode {
 	return newHead.Next
 }
 
-// @lc code=start
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -32,19 +31,21 @@ func reverseList1(head *ListNode) *ListNode {
 /*
  递归
 */
-func reverseList(head *ListNode) *ListNode {
+func reverseList2(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
-	p := reverseList(head.Next)
+	p := reverseList2(head.Next)
 	head.Next.Next = head
 	head.Next = nil
 	return p
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution206() {
+func Solve206() {
 	nums := []int{1, 2, 3, 4, 5}
 	null := &ListNode{}
 	p := null
@@ -56,7 +57,7 @@ func Solution206() {
 		p.Next = node
 		p = p.Next
 	}
-	res := reverseList(null.Next)
+	res := reverseList1(null.Next)
 	arrow := ""
 	for res != nil {
 		fmt.Print(arrow, res.Val)

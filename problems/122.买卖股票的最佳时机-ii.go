@@ -7,7 +7,6 @@ package problems
 
 import "fmt"
 
-// @lc code=start
 func maxProfit_122(prices []int) int {
 	maxprofit := 0
 	for i := 1; i < len(prices); i++ {
@@ -18,9 +17,11 @@ func maxProfit_122(prices []int) int {
 	return maxprofit
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution122() {
+func Solve122() {
 	prices := []int{7, 1, 5, 3, 6, 4}
 	fmt.Println(maxProfit_122(prices))
 }

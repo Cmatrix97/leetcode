@@ -31,11 +31,10 @@ func isPalindrome1(s string) bool {
 	return true
 }
 
-// @lc code=start
 /*双指针一次遍历
 空间复杂度O(1)
 */
-func isPalindrome(s string) bool {
+func isPalindrome2(s string) bool {
 	isalnum := func(c byte) bool {
 		if (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') {
 			return true
@@ -61,11 +60,13 @@ func isPalindrome(s string) bool {
 	return true
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution125() {
+func Solve125() {
 	// s := "A man, a plan, a canal: Panama"
 	// s := "race a car"
 	s := " "
-	fmt.Println(isPalindrome((s)))
+	fmt.Println(isPalindrome1((s)))
 }

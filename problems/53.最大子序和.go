@@ -32,12 +32,11 @@ func maxSubArray1(nums []int) int {
 	return dp[len(nums)-1][0]
 }
 
-// @lc code=start
 /*动态规划法
 优化写法
 空间复杂度由O(n)降为O(1)
 */
-func maxSubArray(nums []int) int {
+func maxSubArray2(nums []int) int {
 	ans := nums[0]
 	sum := 0
 	for _, num := range nums {
@@ -51,9 +50,11 @@ func maxSubArray(nums []int) int {
 	return ans
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution53() {
+func Solve53() {
 	nums := []int{-2, 1, -3, 4, -1, 2, 1, -5, 4}
-	fmt.Print(maxSubArray(nums))
+	fmt.Print(maxSubArray1(nums))
 }

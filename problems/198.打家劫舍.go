@@ -28,11 +28,10 @@ func rob1(nums []int) int {
 	return dp[len(nums)-1]
 }
 
-// @lc code=start
 /*
 简化写法，空间复杂度O(n) --> O(1)
 */
-func rob(nums []int) int {
+func rob2(nums []int) int {
 	var max, pre, temp float64
 	for _, v := range nums {
 		temp = max
@@ -42,10 +41,12 @@ func rob(nums []int) int {
 	return int(max)
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution198() {
+func Solve198() {
 	nums := []int{}
 	// nums := []int{1, 2, 3, 1}
-	fmt.Println(rob(nums))
+	fmt.Println(rob1(nums))
 }

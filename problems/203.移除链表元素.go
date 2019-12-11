@@ -25,7 +25,6 @@ func removeElements1(head *ListNode, val int) *ListNode {
 	return null.Next
 }
 
-// @lc code=start
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -33,7 +32,7 @@ func removeElements1(head *ListNode, val int) *ListNode {
  *     Next *ListNode
  * }
  */
-func removeElements(head *ListNode, val int) *ListNode {
+func removeElements2(head *ListNode, val int) *ListNode {
 	null := &ListNode{}
 	tail := null
 	for head != nil {
@@ -47,8 +46,6 @@ func removeElements(head *ListNode, val int) *ListNode {
 	}
 	return null.Next
 }
-
-// @lc code=end
 
 /*
 递归写法，很好理解
@@ -65,7 +62,11 @@ func removeElements3(head *ListNode, val int) *ListNode {
 	}
 }
 
-func Solution203() {
+// @lc code=start
+
+// @lc code=end
+
+func Solve203() {
 	values := []int{1, 2, 6, 3, 4, 5, 6}
 	// values := []int{}
 	val := 6

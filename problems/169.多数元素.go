@@ -33,10 +33,9 @@ func majorityElement2(nums []int) int {
 	return nums[len(nums)/2]
 }
 
-// @lc code=start
 /*Boyer-Moore 投票算法
  */
-func majorityElement(nums []int) int {
+func majorityElement3(nums []int) int {
 	var candidate int
 	count := 0
 	for _, v := range nums {
@@ -52,9 +51,11 @@ func majorityElement(nums []int) int {
 	return candidate
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution169() {
+func Solve169() {
 	arr := []int{2, 2, 1, 1, 1, 2, 2}
-	fmt.Println(majorityElement(arr))
+	fmt.Println(majorityElement1(arr))
 }

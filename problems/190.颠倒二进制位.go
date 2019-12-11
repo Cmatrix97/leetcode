@@ -7,7 +7,6 @@ package problems
 
 import "fmt"
 
-// @lc code=start
 func reverseBits(num uint32) uint32 {
 	var res uint32
 	for i := 0; i < 32; i++ {
@@ -17,9 +16,11 @@ func reverseBits(num uint32) uint32 {
 	return res
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution190() {
+func Solve190() {
 	var num uint32 = 0b00000010100101000001111010011100
 	res := reverseBits(num)
 	fmt.Print(res)

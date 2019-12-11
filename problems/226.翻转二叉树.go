@@ -7,7 +7,6 @@ package problems
 
 import "fmt"
 
-// @lc code=start
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -25,9 +24,11 @@ func invertTree(root *TreeNode) *TreeNode {
 	return root
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution226() {
+func Solve226() {
 	root := &TreeNode{
 		Val: 4,
 		Left: &TreeNode{

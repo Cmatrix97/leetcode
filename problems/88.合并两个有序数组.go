@@ -17,10 +17,9 @@ func merge1(nums1 []int, m int, nums2 []int, n int) {
 	sort.Ints(nums1)
 }
 
-// @lc code=start
 /*双指针
  */
-func merge(nums1 []int, m int, nums2 []int, n int) {
+func merge2(nums1 []int, m int, nums2 []int, n int) {
 	nums1Copy := make([]int, m)
 	copy(nums1Copy[:], nums1[:m])
 	p, p1, p2 := 0, 0, 0
@@ -42,15 +41,17 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 	}
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution88() {
+func Solve88() {
 	nums1 := []int{1, 2, 3, 0, 0, 0}
 	nums2 := []int{2, 5, 6}
 	// nums1 := []int{0}
 	// nums2 := []int{1}
 	m, n := 3, 3
-	merge(nums1, m, nums2, n)
+	merge1(nums1, m, nums2, n)
 	for _, v := range nums1 {
 		fmt.Print(v)
 	}

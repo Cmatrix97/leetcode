@@ -13,7 +13,7 @@ import (
 /*动态规划法
 f(x) = max{f(x-1), x-min(x-1)}
 */
-func maxProfit1(prices []int) int {
+func maxProfit1_121(prices []int) int {
 	if len(prices) == 0 {
 		return 0
 	}
@@ -27,11 +27,10 @@ func maxProfit1(prices []int) int {
 	return dp[len(prices)-1]
 }
 
-// @lc code=start
 /*动态规划法
 优化写法
 */
-func maxProfit_121(prices []int) int {
+func maxProfit2_121(prices []int) int {
 	minprice, maxprofit := math.MaxInt64, 0
 	for i := 0; i < len(prices); i++ {
 		if prices[i] < minprice {
@@ -43,9 +42,11 @@ func maxProfit_121(prices []int) int {
 	return maxprofit
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution121() {
+func Solve121() {
 	prices := []int{7, 1, 5, 3, 6, 4}
-	fmt.Println(maxProfit_121(prices))
+	fmt.Println(maxProfit1_121(prices))
 }

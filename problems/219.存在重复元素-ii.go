@@ -7,7 +7,6 @@ package problems
 
 import "fmt"
 
-// @lc code=start
 func containsNearbyDuplicate(nums []int, k int) bool {
 	m := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
@@ -19,9 +18,11 @@ func containsNearbyDuplicate(nums []int, k int) bool {
 	return false
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution219() {
+func Solve219() {
 	nums := []int{1, 2, 3, 1, 2, 3}
 	k := 2
 	fmt.Println(containsNearbyDuplicate(nums, k))

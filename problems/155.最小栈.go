@@ -10,7 +10,6 @@ import (
 	"math"
 )
 
-// @lc code=start
 type MinStack struct {
 	stack []int
 	top   int
@@ -58,9 +57,12 @@ func (this *MinStack) GetMin() int {
  * param_3 := obj.Top();
  * param_4 := obj.GetMin();
  */
+
+// @lc code=start
+
 // @lc code=end
 
-func Solution155() {
+func Solve155() {
 	minStack := Constructor()
 	minStack.Push(-2)
 	minStack.Push(0)

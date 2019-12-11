@@ -23,11 +23,10 @@ func trailingZeroes1(n int) int {
 	return count
 }
 
-// @lc code=start
 /*
 n/5 + n/25 + n/125 + ...
 */
-func trailingZeroes(n int) int {
+func trailingZeroes2(n int) int {
 	count := 0
 	for n > 0 {
 		count += n / 5
@@ -36,9 +35,11 @@ func trailingZeroes(n int) int {
 	return count
 }
 
+// @lc code=start
+
 // @lc code=end
 
-func Solution172() {
+func Solve172() {
 	n := 5
-	fmt.Println(trailingZeroes(n))
+	fmt.Println(trailingZeroes2(n))
 }
