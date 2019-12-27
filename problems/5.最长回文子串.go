@@ -5,9 +5,10 @@
  */
 package problems
 
-import "fmt"
-
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 /*
 中心扩展算法
