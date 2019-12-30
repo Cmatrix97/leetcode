@@ -56,11 +56,11 @@ func permute2(nums []int) [][]int {
 	used := make([]bool, len(nums))
 	track := make([]int, 0, len(nums))
 	var route [][]int
-	backtrack(nums, track, used, &route)
+	backtrack_46(nums, track, used, &route)
 	return route
 }
 
-func backtrack(nums, track []int, used []bool, route *[][]int) {
+func backtrack_46(nums, track []int, used []bool, route *[][]int) {
 	if len(track) == len(nums) {
 		temp := make([]int, len(nums))
 		copy(temp, track)
@@ -73,10 +73,63 @@ func backtrack(nums, track []int, used []bool, route *[][]int) {
 		}
 		used[i] = true
 		track = append(track, nums[i])
-		backtrack(nums, track, used, route)
+		backtrack_46(nums, track, used, route)
 		track = track[:len(track)-1]
 		used[i] = false
 	}
+}
+
+/*
+匿名函数
+*/
+func permute3(nums []int) [][]int {
+	var route [][]int
+	var track []int
+	used := make([]bool, len(nums))
+	var backtrack func()
+	backtrack = func() {
+		if len(track) == len(nums) {
+			temp := make([]int, len(track))
+			copy(temp, track)
+			route = append(route, temp)
+			return
+		}
+		for i := 0; i < len(nums); i++ {
+			if used[i] {
+				continue
+			}
+			used[i] = true
+			track = append(track, nums[i])
+			backtrack()
+			track = track[:len(track)-1]
+			used[i] = false
+		}
+	}
+	backtrack()
+	return route
+}
+
+/*
+交换元素
+*/
+func permute4(nums []int) [][]int {
+	var route [][]int
+	var backtrack func(first int)
+	n := len(nums)
+	backtrack = func(first int) {
+		if first == n-1 {
+			temp := make([]int, len(nums))
+			copy(temp, nums)
+			route = append(route, temp)
+		}
+		for i := first; i < n; i++ {
+			nums[first], nums[i] = nums[i], nums[first]
+			backtrack(first + 1)
+			nums[first], nums[i] = nums[i], nums[first]
+		}
+	}
+	backtrack(0)
+	return route
 }
 
 // @lc code=start
@@ -85,6 +138,6 @@ func backtrack(nums, track []int, used []bool, route *[][]int) {
 
 func Solve46() {
 	nums := []int{1, 2, 3}
-	res := permute2(nums)
+	res := permute4(nums)
 	fmt.Println(res)
 }
