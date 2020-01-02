@@ -12,14 +12,14 @@ import (
 
 /*先合并后排序
  */
-func merge1(nums1 []int, m int, nums2 []int, n int) {
+func merge1_88(nums1 []int, m int, nums2 []int, n int) {
 	copy(nums1[m:], nums2[:])
 	sort.Ints(nums1)
 }
 
 /*双指针
  */
-func merge2(nums1 []int, m int, nums2 []int, n int) {
+func merge2_88(nums1 []int, m int, nums2 []int, n int) {
 	nums1Copy := make([]int, m)
 	copy(nums1Copy[:], nums1[:m])
 	p, p1, p2 := 0, 0, 0
@@ -51,7 +51,7 @@ func Solve88() {
 	// nums1 := []int{0}
 	// nums2 := []int{1}
 	m, n := 3, 3
-	merge1(nums1, m, nums2, n)
+	merge1_88(nums1, m, nums2, n)
 	for _, v := range nums1 {
 		fmt.Print(v)
 	}
