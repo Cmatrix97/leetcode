@@ -3,5 +3,5 @@ package main
 import "github.com/Cmatrix97/leetcode/problems"
 
 func main() {
-	problems.Solve75()
+	problems.Solve86()
 }
