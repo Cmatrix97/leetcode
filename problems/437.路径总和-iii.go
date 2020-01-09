@@ -11,13 +11,13 @@ import "fmt"
 双递归
 第一次前序遍历每个节点，第二次求每个节点为根节点的可满足解
 */
-func pathSum1(root *TreeNode, sum int) int {
+func pathSum1_437(root *TreeNode, sum int) int {
 	if root == nil {
 		return 0
 	}
 	res := computeNode(root, sum)
-	res += pathSum1(root.Left, sum)
-	res += pathSum1(root.Right, sum)
+	res += pathSum1_437(root.Left, sum)
+	res += pathSum1_437(root.Right, sum)
 	return res
 }
 
@@ -37,7 +37,7 @@ func computeNode(root *TreeNode, sum int) int {
 /*
 递归+数组
 */
-func pathSum2(root *TreeNode, sum int) int {
+func pathSum2_437(root *TreeNode, sum int) int {
 	path := make([]int, 1000)
 	return recurse(root, sum, path, 0)
 }
@@ -63,7 +63,7 @@ func recurse(root *TreeNode, sum int, path []int, p int) int {
 /*
  匿名函数递归
 */
-func pathSum3(root *TreeNode, sum int) int {
+func pathSum3_437(root *TreeNode, sum int) int {
 	var recurse func(root *TreeNode, path []int)
 	var ans int
 
@@ -90,7 +90,7 @@ func pathSum3(root *TreeNode, sum int) int {
 /*
  回溯法+哈希表，思路同560题
 */
-func pathSum4(root *TreeNode, sum int) int {
+func pathSum4_437(root *TreeNode, sum int) int {
 	m := make(map[int]int)
 	return helper(root, 0, sum, m)
 }
@@ -147,5 +147,5 @@ func Solve437() {
 		},
 	}
 	sum := 8
-	fmt.Println(pathSum1(root, sum))
+	fmt.Println(pathSum1_437(root, sum))
 }

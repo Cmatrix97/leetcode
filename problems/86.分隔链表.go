@@ -14,7 +14,7 @@ import "fmt"
  *     Next *ListNode
  * }
  */
-func partition1(head *ListNode, x int) *ListNode {
+func partition1_86(head *ListNode, x int) *ListNode {
 	beforeHead, afterHead := &ListNode{}, &ListNode{}
 	before, after := beforeHead, afterHead
 	for head != nil {
@@ -55,7 +55,7 @@ func Solve86() {
 		},
 	}
 	x := 3
-	res := partition1(head, x)
+	res := partition1_86(head, x)
 	var arrow string
 	for res != nil {
 		fmt.Print(arrow, res.Val)
