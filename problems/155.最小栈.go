@@ -16,7 +16,7 @@ type MinStack struct {
 }
 
 /** initialize your data structure here. */
-func Constructor() MinStack {
+func Constructor_155() MinStack {
 	return MinStack{
 		stack: []int{},
 		top:   0,
@@ -63,7 +63,7 @@ func (this *MinStack) GetMin() int {
 // @lc code=end
 
 func Solve155() {
-	minStack := Constructor()
+	minStack := Constructor_155()
 	minStack.Push(-2)
 	minStack.Push(0)
 	minStack.Push(-3)

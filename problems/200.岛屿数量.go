@@ -8,7 +8,91 @@ package problems
 import "fmt"
 
 /*
-并查集
+dfs
+*/
+func numIslands1(grid [][]byte) int {
+	if len(grid) == 0 {
+		return 0
+	}
+	M, N := len(grid), len(grid[0])
+	var dfs func(row, col int)
+	dfs = func(row, col int) {
+		if row < 0 || col < 0 || row >= M || col >= N {
+			return
+		}
+		if grid[row][col] == '0' {
+			return
+		}
+		grid[row][col] = '0'
+		dfs(row-1, col)
+		dfs(row+1, col)
+		dfs(row, col-1)
+		dfs(row, col+1)
+	}
+	var count int
+	for i := 0; i < M; i++ {
+		for j := 0; j < N; j++ {
+			if grid[i][j] == '1' {
+				count++
+				dfs(i, j)
+			}
+		}
+	}
+	return count
+}
+
+/*
+bfs
+*/
+type node struct {
+	x, y int
+}
+
+func numIslands(grid [][]byte) int {
+	if len(grid) == 0 {
+		return 0
+	}
+	M, N := len(grid), len(grid[0])
+	var bfs func(row, col int)
+	bfs = func(row, col int) {
+		var queue []*node
+		queue = append(queue, &node{row, col})
+		grid[row][col] = '0'
+		for len(queue) != 0 {
+			row, col = queue[0].x, queue[0].y
+			queue = queue[1:]
+			if row-1 >= 0 && grid[row-1][col] == '1' {
+				queue = append(queue, &node{row - 1, col})
+				grid[row-1][col] = '0'
+			}
+			if row+1 < M && grid[row+1][col] == '1' {
+				queue = append(queue, &node{row + 1, col})
+				grid[row+1][col] = '0'
+			}
+			if col-1 >= 0 && grid[row][col-1] == '1' {
+				queue = append(queue, &node{row, col - 1})
+				grid[row][col-1] = '0'
+			}
+			if col+1 < N && grid[row][col+1] == '1' {
+				queue = append(queue, &node{row, col + 1})
+				grid[row][col+1] = '0'
+			}
+		}
+	}
+	var count int
+	for i := 0; i < M; i++ {
+		for j := 0; j < N; j++ {
+			if grid[i][j] == '1' {
+				count++
+				bfs(i, j)
+			}
+		}
+	}
+	return count
+}
+
+/*
+UnionFind
 */
 type UnionFind struct {
 	parents []int
@@ -50,7 +134,7 @@ func (u *UnionFind) getCount() int {
 	return u.count
 }
 
-func numIslands(grid [][]byte) int {
+func numIslands3(grid [][]byte) int {
 	if len(grid) == 0 {
 		return 0
 	}
@@ -93,5 +177,5 @@ func Solve200() {
 		{'1', '1', '0', '0', '0'},
 		{'0', '0', '0', '0', '0'},
 	}
-	fmt.Println(numIslands(grid))
+	fmt.Println(numIslands1(grid))
 }
