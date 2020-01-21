@@ -12,7 +12,7 @@ import (
 
 /*哈希表
  */
-func majorityElement1(nums []int) int {
+func majorityElement1_169(nums []int) int {
 	m := make(map[int]int)
 	for i := 0; i < len(nums); i++ {
 		m[nums[i]]++
@@ -28,14 +28,14 @@ func majorityElement1(nums []int) int {
 
 /*排序后中位数
  */
-func majorityElement2(nums []int) int {
+func majorityElement2_169(nums []int) int {
 	sort.Ints(nums)
 	return nums[len(nums)/2]
 }
 
 /*Boyer-Moore 投票算法
  */
-func majorityElement3(nums []int) int {
+func majorityElement3_169(nums []int) int {
 	var candidate int
 	count := 0
 	for _, v := range nums {
@@ -57,5 +57,5 @@ func majorityElement3(nums []int) int {
 
 func Solve169() {
 	arr := []int{2, 2, 1, 1, 1, 2, 2}
-	fmt.Println(majorityElement1(arr))
+	fmt.Println(majorityElement1_169(arr))
 }
