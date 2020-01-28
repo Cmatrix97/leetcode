@@ -17,7 +17,7 @@ type RandomizedSet struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() RandomizedSet {
+func Constructor_380() RandomizedSet {
 	rs := RandomizedSet{}
 	rs.m = make(map[int]int)
 	return rs
@@ -62,7 +62,7 @@ func (this *RandomizedSet) GetRandom() int {
  */
 // @lc code=end
 func Solve380() {
-	randomSet := Constructor()
+	randomSet := Constructor_380()
 	fmt.Println(randomSet.Insert(1))
 	fmt.Println(randomSet.Remove(2))
 	fmt.Println(randomSet.Insert(2))
