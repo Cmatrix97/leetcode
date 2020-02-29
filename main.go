@@ -1,7 +1,7 @@
 package main
 
-import "github.com/Cmatrix97/leetcode/problems"
+import ci "github.com/cmatrixprobe/leetcode/interview"
 
 func main() {
-	problems.Solve912()
+	ci.SolveOffer03()
 }

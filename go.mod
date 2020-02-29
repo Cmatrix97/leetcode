@@ -1,3 +1,3 @@
-module github.com/Cmatrix97/leetcode
+module github.com/cmatrixprobe/leetcode
 
-go 1.13
+go 1.14
