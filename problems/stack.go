@@ -5,9 +5,7 @@ type Element struct {
 	Value interface{}
 }
 
-/**
-链栈
-*/
+// 链栈
 type Stack struct {
 	top Element
 }
@@ -35,9 +33,7 @@ func (s *Stack) Empty() bool {
 	return true
 }
 
-/**
-顺序栈
-*/
+// 顺序栈
 type SStack []interface{}
 
 func (s *SStack) Push(v interface{}) {

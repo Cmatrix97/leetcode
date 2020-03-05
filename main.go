@@ -3,5 +3,5 @@ package main
 import ci "github.com/cmatrixprobe/leetcode/interview"
 
 func main() {
-	ci.SolveOffer03()
+	ci.SolveOffer06()
 }

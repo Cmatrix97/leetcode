@@ -1,12 +1,13 @@
 package problems
 
-//TreeNode 二叉树节点
+// TreeNode 二叉树节点
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
 }
 
+// InitTree 根据int slice生成一颗二叉树
 func InitTree(root *TreeNode, nums []int) {
 	var queue []*TreeNode
 	root.Val, nums = nums[0], nums[1:]
