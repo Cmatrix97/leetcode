@@ -70,16 +70,7 @@ func Solve203() {
 	values := []int{1, 2, 6, 3, 4, 5, 6}
 	// values := []int{}
 	val := 6
-	head := &ListNode{}
-	p := head
-	for _, v := range values {
-		temp := &ListNode{
-			Val: v,
-		}
-		p.Next = temp
-		p = p.Next
-	}
-	head = head.Next
+	head := CreateLinkedList(values)
 	removeElements1(head, val)
 	arrow := ""
 	for head != nil {

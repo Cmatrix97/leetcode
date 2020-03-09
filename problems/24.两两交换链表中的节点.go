@@ -43,18 +43,8 @@ func swapPairs2(head *ListNode) *ListNode {
 // @lc code=end
 
 func Solve24() {
-	head := &ListNode{
-		Val: 1,
-		Next: &ListNode{
-			Val: 2,
-			Next: &ListNode{
-				Val: 3,
-				Next: &ListNode{
-					Val: 4,
-				},
-			},
-		},
-	}
+	arr := []int{1, 2, 3, 4}
+	head := CreateLinkedList(arr)
 	res := swapPairs1(head)
 	var arrow string
 	for res != nil {

@@ -48,8 +48,10 @@ func addTwoNumbers1_2(l1 *ListNode, l2 *ListNode) *ListNode {
 // @lc code=end
 
 func Solve2() {
-	l1 := &ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}
-	l2 := &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4}}}
+	arr1 := []int{2, 4, 3}
+	arr2 := []int{5, 6, 4}
+	l1 := CreateLinkedList(arr1)
+	l2 := CreateLinkedList(arr2)
 	res := addTwoNumbers1_2(l1, l2)
 	var arrow string
 	for res != nil {

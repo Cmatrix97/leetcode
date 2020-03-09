@@ -10,15 +10,11 @@ import "fmt"
 /*迭代
  */
 func reverseList1(head *ListNode) *ListNode {
-	newHead := &ListNode{}
-	p := head
+	var newHead *ListNode
 	for head != nil {
-		head = head.Next
-		p.Next = newHead.Next
-		newHead.Next = p
-		p = head
+		head, head.Next, newHead = head.Next, newHead, head
 	}
-	return newHead.Next
+	return newHead
 }
 
 /**
@@ -47,17 +43,8 @@ func reverseList2(head *ListNode) *ListNode {
 
 func Solve206() {
 	nums := []int{1, 2, 3, 4, 5}
-	null := &ListNode{}
-	p := null
-	for _, v := range nums {
-		node := &ListNode{
-			Val:  v,
-			Next: nil,
-		}
-		p.Next = node
-		p = p.Next
-	}
-	res := reverseList1(null.Next)
+	head := CreateLinkedList(nums)
+	res := reverseList1(head)
 	arrow := ""
 	for res != nil {
 		fmt.Print(arrow, res.Val)

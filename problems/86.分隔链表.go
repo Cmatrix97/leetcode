@@ -36,24 +36,8 @@ func partition1_86(head *ListNode, x int) *ListNode {
 // @lc code=end
 
 func Solve86() {
-	head := &ListNode{
-		Val: 1,
-		Next: &ListNode{
-			Val: 4,
-			Next: &ListNode{
-				Val: 3,
-				Next: &ListNode{
-					Val: 2,
-					Next: &ListNode{
-						Val: 5,
-						Next: &ListNode{
-							Val: 2,
-						},
-					},
-				},
-			},
-		},
-	}
+	arr := []int{1, 4, 3, 2, 5, 2}
+	head := CreateLinkedList(arr)
 	x := 3
 	res := partition1_86(head, x)
 	var arrow string

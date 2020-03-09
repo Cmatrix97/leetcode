@@ -66,21 +66,8 @@ func reverseBetween2(head *ListNode, m int, n int) *ListNode {
 // @lc code=end
 
 func Solve92() {
-	head := &ListNode{
-		Val: 1,
-		Next: &ListNode{
-			Val: 2,
-			Next: &ListNode{
-				Val: 3,
-				Next: &ListNode{
-					Val: 4,
-					Next: &ListNode{
-						Val: 5,
-					},
-				},
-			},
-		},
-	}
+	arr := []int{1, 2, 3, 4, 5}
+	head := CreateLinkedList(arr)
 	m, n := 2, 4
 	head = reverseBetween1(head, m, n)
 	var arrow string
