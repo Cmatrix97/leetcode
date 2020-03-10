@@ -2,6 +2,7 @@ package interview
 
 import "fmt"
 
+// 根据题意对1000000007取余
 func numWays1(n int) int {
 	n0, n1 := 0, 1
 	for i := 0; i < n; i++ {
