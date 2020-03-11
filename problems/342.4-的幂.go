@@ -8,7 +8,7 @@ package problems
 import "fmt"
 
 /*
-4的幂转换为二进制一定为1000...其中0的数量为偶数个，转换为字符串判断
+4的幂转换为二进制一定为10000...其中0的数量为偶数个，转换为字符串判断
 */
 func isPowerOfFour1(num int) bool {
 	if num&(num-1) != 0 || num == 0 {
