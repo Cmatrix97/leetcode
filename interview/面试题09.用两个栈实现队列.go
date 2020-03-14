@@ -18,7 +18,7 @@ type CQueue struct {
 	out Stack
 }
 
-func Constructor() CQueue {
+func Constructor_09() CQueue {
 	return CQueue{}
 }
 
@@ -47,7 +47,7 @@ func (this *CQueue) DeleteHead() int {
  */
 
 func SolveOffer09() {
-	obj := Constructor()
+	obj := Constructor_09()
 	obj.AppendTail(3)
 	fmt.Println(obj.DeleteHead())
 	fmt.Println(obj.DeleteHead())
