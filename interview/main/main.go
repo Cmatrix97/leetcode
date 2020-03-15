@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	interview.SolveOffer30()
+	interview.SolveOffer32_3()
 }
