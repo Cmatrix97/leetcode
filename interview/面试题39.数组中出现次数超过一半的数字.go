@@ -8,13 +8,12 @@ import (
 // 投票算法
 func majorityElement1(nums []int) int {
 	candidate, votes := math.MinInt64, 0
-	for _, v := range nums {
-		if v == candidate {
-			votes++
-			continue
-		}
+	for _, num := range nums {
 		if votes == 0 {
-			candidate = v
+			candidate = num
+		}
+		if num == candidate {
+			votes++
 		} else {
 			votes--
 		}
