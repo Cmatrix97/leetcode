@@ -10,46 +10,68 @@ import (
 	"math"
 )
 
-/*
-动态规划
-dp[i]表示前i个数的最大乘积
-max[i]表示以第i个数结尾的最大乘积
-min[i]表示以第i个数结尾的最大乘积
-dp[i] = max{dp[i-1], max[i]}
-(1)如果nums[i]为正数, max[i] = max{max[i-1]*nums[i], nums[i]}
-(1)如果nums[i]为负数, max[i] = max{min[i-1]*nums[i], nums[i]}
-min的求法与max相反
-*/
+
+// 动态规划
+// ans表示前i个数的最大乘积
+// max[i]表示以第i个数结尾的最大乘积
+// min[i]表示以第i个数结尾的最小乘积
+// ans = max{ans, max[i]}
+// (1)如果nums[i]为正数, max[i] = max{max[i-1]*nums[i], nums[i]}
+// (1)如果nums[i]为负数, max[i] = max{min[i-1]*nums[i], nums[i]}
+// min的求法与max相反
 func maxProduct1(nums []int) int {
-	minSuffix, maxSuffix, dp := make([]int, len(nums)), make([]int, len(nums)), make([]int, len(nums))
-	minSuffix[0], maxSuffix[0], dp[0] = nums[0], nums[0], nums[0]
+	max := func(x, y int) int {
+		if x > y {
+			return x
+		}
+		return y
+	}
+	min := func(x, y int) int {
+		if x < y {
+			return x
+		}
+		return y
+	}
+	maxArr, minArr := make([]int, len(nums)), make([]int, len(nums))
+	maxArr[0], minArr[0] = nums[0], nums[0]
+	ans := nums[0]
 	for i := 1; i < len(nums); i++ {
 		if nums[i] >= 0 {
-			minSuffix[i] = int(math.Min(float64(nums[i]), float64(nums[i]*minSuffix[i-1])))
-			maxSuffix[i] = int(math.Max(float64(nums[i]), float64(nums[i]*maxSuffix[i-1])))
-		} else if nums[i] < 0 {
-			minSuffix[i] = int(math.Min(float64(nums[i]), float64(nums[i]*maxSuffix[i-1])))
-			maxSuffix[i] = int(math.Max(float64(nums[i]), float64(nums[i]*minSuffix[i-1])))
+			maxArr[i] = max(nums[i], maxArr[i-1]*nums[i])
+			minArr[i] = min(nums[i], minArr[i-1]*nums[i])
+		} else {
+			maxArr[i] = max(nums[i], minArr[i-1]*nums[i])
+			minArr[i] = min(nums[i], maxArr[i-1]*nums[i])
 		}
-		dp[i] = int(math.Max(float64(dp[i-1]), float64(maxSuffix[i])))
+		ans = max(ans, maxArr[i])
 	}
-	return dp[len(nums)-1]
+	return ans
 }
 
-/*
-降低空间复杂度为O(1)
-*/
+// 降低空间复杂度为O(1)
 func maxProduct2(nums []int) int {
-	max, imax, imin := math.MinInt64, 1, 1
-	for i := range nums {
-		if nums[i] < 0 {
+	max := func(x, y int) int {
+		if x > y {
+			return x
+		}
+		return y
+	}
+	min := func(x, y int) int {
+		if x < y {
+			return x
+		}
+		return y
+	}
+	ans, imax, imin := math.MinInt64, 1, 1
+	for _, num := range nums {
+		if num < 0 {
 			imax, imin = imin, imax
 		}
-		imax = int(math.Max(float64(nums[i]), float64(nums[i]*imax)))
-		imin = int(math.Min(float64(nums[i]), float64(nums[i]*imin)))
-		max = int(math.Max(float64(max), float64(imax)))
+		imax = max(num, imax*num)
+		imin = min(num, imin*num)
+		ans = max(ans, imax)
 	}
-	return max
+	return ans
 }
 
 // @lc code=start
