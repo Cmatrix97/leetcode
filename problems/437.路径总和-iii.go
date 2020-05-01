@@ -119,33 +119,9 @@ func helper(root *TreeNode, acc, target int, m map[int]int) int {
 // @lc code=end
 
 func Solve437() {
-	root := &TreeNode{
-		Val: 10,
-		Left: &TreeNode{
-			Val: 5,
-			Left: &TreeNode{
-				Val: 3,
-				Left: &TreeNode{
-					Val: 3,
-				},
-				Right: &TreeNode{
-					Val: -2,
-				},
-			},
-			Right: &TreeNode{
-				Val: 2,
-				Right: &TreeNode{
-					Val: 1,
-				},
-			},
-		},
-		Right: &TreeNode{
-			Val: -3,
-			Right: &TreeNode{
-				Val: 11,
-			},
-		},
-	}
+	nums := []int{10, 5, -3, 3, 2, -1, 11, 3, -2, -1, 1}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	sum := 8
 	fmt.Println(pathSum1_437(root, sum))
 }

@@ -61,15 +61,9 @@ func preorderTraversal2(root *TreeNode) []int {
 // @lc code=end
 
 func Solve144() {
-	root := &TreeNode{
-		Val: 1,
-		Right: &TreeNode{
-			Val: 2,
-			Left: &TreeNode{
-				Val: 3,
-			},
-		},
-	}
+	nums := []int{1, -1, 2, 3}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	res := preorderTraversal1(root)
 	fmt.Println(res)
 }

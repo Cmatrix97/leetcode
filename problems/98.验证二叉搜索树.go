@@ -96,20 +96,8 @@ func isValidBST3(root *TreeNode) bool {
 // @lc code=end
 
 func Solve98() {
-	root := &TreeNode{
-		Val: 5,
-		Left: &TreeNode{
-			Val: 1,
-		},
-		Right: &TreeNode{
-			Val: 4,
-			Left: &TreeNode{
-				Val: 3,
-			},
-			Right: &TreeNode{
-				Val: 6,
-			},
-		},
-	}
+	nums := []int{5, 1, 4, -1, -1, 3, 6}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	fmt.Println(isValidBST1(root))
 }

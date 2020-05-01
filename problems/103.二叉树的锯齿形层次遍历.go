@@ -58,21 +58,9 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
 // @lc code=end
 
 func Solve103() {
-	root := &TreeNode{
-		Val: 3,
-		Left: &TreeNode{
-			Val: 9,
-		},
-		Right: &TreeNode{
-			Val: 20,
-			Left: &TreeNode{
-				Val: 15,
-			},
-			Right: &TreeNode{
-				Val: 7,
-			},
-		},
-	}
+	nums := []int{3, 9, 20, -1, -1, 15, 7}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	res := zigzagLevelOrder(root)
 	fmt.Println(res)
 }

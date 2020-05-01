@@ -95,21 +95,9 @@ func rightSideView3(root *TreeNode) []int {
 // @lc code=end
 
 func Solve199() {
-	root := &TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val: 2,
-			Right: &TreeNode{
-				Val: 5,
-			},
-		},
-		Right: &TreeNode{
-			Val: 3,
-			Right: &TreeNode{
-				Val: 4,
-			},
-		},
-	}
+	nums := []int{1, 2, 3, -1, 5, -1, 4}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	res := rightSideView1(root)
 	fmt.Println(res)
 }

@@ -29,27 +29,9 @@ func invertTree(root *TreeNode) *TreeNode {
 // @lc code=end
 
 func Solve226() {
-	root := &TreeNode{
-		Val: 4,
-		Left: &TreeNode{
-			Val: 2,
-			Left: &TreeNode{
-				Val: 1,
-			},
-			Right: &TreeNode{
-				Val: 3,
-			},
-		},
-		Right: &TreeNode{
-			Val: 7,
-			Left: &TreeNode{
-				Val: 9,
-			},
-			Right: &TreeNode{
-				Val: 9,
-			},
-		},
-	}
+	nums := []int{4, 2, 7, 1, 3, 6, 9}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	root = invertTree(root)
 	//7由根节点右孩子变为左孩子
 	fmt.Println(root.Left.Val)
