@@ -41,20 +41,8 @@ func sumNumbers1(root *TreeNode) int {
 
 // @lc code=end
 func Solve129() {
-	root := &TreeNode{
-		Val: 4,
-		Left: &TreeNode{
-			Val: 9,
-			Left: &TreeNode{
-				Val: 5,
-			},
-			Right: &TreeNode{
-				Val: 1,
-			},
-		},
-		Right: &TreeNode{
-			Val: 0,
-		},
-	}
+	nums := []int{4, 9, 0, 5, 1}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	fmt.Println(sumNumbers1(root))
 }

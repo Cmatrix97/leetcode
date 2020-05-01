@@ -49,36 +49,9 @@ func pathSum1_113(root *TreeNode, sum int) [][]int {
 // @lc code=end
 
 func Solve113() {
-	root := &TreeNode{
-		Val: 5,
-		Left: &TreeNode{
-			Val: 4,
-			Left: &TreeNode{
-				Val: 11,
-				Left: &TreeNode{
-					Val: 7,
-				},
-				Right: &TreeNode{
-					Val: 2,
-				},
-			},
-		},
-		Right: &TreeNode{
-			Val: 8,
-			Left: &TreeNode{
-				Val: 13,
-			},
-			Right: &TreeNode{
-				Val: 4,
-				Left: &TreeNode{
-					Val: 5,
-				},
-				Right: &TreeNode{
-					Val: 1,
-				},
-			},
-		},
-	}
+	nums := []int{5, 4, 8, 11, -1, 13, 4, 7, 2, -1, -1, 5, 1}
+	root := &TreeNode{}
+	InitTree(root, nums)
 	sum := 22
 	res := pathSum1_113(root, sum)
 	fmt.Println(res)

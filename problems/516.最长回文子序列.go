@@ -52,7 +52,7 @@ func longestPalindromeSubseq2(s string) int {
 	N := len(s)
 	dp := make([]int, N)
 	f := make([]int, 2)
-	for i, _ := range dp {
+	for i := range dp {
 		dp[i] = 1
 	}
 	max := func(x, y int) int {
