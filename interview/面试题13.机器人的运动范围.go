@@ -51,7 +51,7 @@ import (
 // 	size    []int
 // }
 
-// func (u *UnionFind) init(N int) {
+// func NewUF(N int) {
 // 	u.parents = make([]int, N)
 // 	u.size = make([]int, N)
 // 	for i := 0; i < N; i++ {

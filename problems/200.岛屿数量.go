@@ -48,7 +48,7 @@ type node struct {
 	x, y int
 }
 
-func numIslands(grid [][]byte) int {
+func numIslands2(grid [][]byte) int {
 	if len(grid) == 0 {
 		return 0
 	}
@@ -96,32 +96,41 @@ UnionFind
 */
 type UnionFind struct {
 	parents []int
+	size    []int
 	count   int
 }
 
-func (u *UnionFind) init(totalNodes int) {
-	u.parents = make([]int, totalNodes)
-	for i := 0; i < totalNodes; i++ {
+func NewUF(n int) *UnionFind {
+	var u UnionFind
+	u.parents = make([]int, n)
+	u.size = make([]int, n)
+	for i := 0; i < n; i++ {
 		u.parents[i] = i
+		u.size[i] = 1
 	}
-	u.count = totalNodes
+	u.count = n
+	return &u
 }
 
 func (u *UnionFind) union(node1, node2 int) {
 	root1, root2 := u.find(node1), u.find(node2)
-	if root1 != root2 {
-		u.parents[root2] = root1
-		u.count--
+	if root1 == root2 {
+		return
 	}
+	if u.size[root1] < u.size[root2] {
+		u.parents[root1] = root2
+		u.size[root2] += u.size[root1]
+	} else {
+		u.parents[root2] = root1
+		u.size[root1] += u.size[root2]
+	}
+	u.count--
 }
 
 func (u *UnionFind) find(node int) int {
-	son := node
 	for node != u.parents[node] {
+		u.parents[node] = u.parents[u.parents[node]]
 		node = u.parents[node]
-	}
-	for son != node {
-		u.parents[son], son = node, u.parents[son]
 	}
 	return node
 }
@@ -146,9 +155,8 @@ func numIslands3(grid [][]byte) int {
 	node := func(i, j int) int {
 		return i*N + j
 	}
-	var uf UnionFind
 	dummyNode := M * N
-	uf.init(dummyNode + 1)
+	uf := NewUF(dummyNode + 1)
 	for i := 0; i < M; i++ {
 		for j := 0; j < N; j++ {
 			if grid[i][j] == '1' {

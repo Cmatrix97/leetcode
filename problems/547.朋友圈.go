@@ -31,23 +31,23 @@ func findCircleNum1(M [][]int) int {
 	return count
 }
 
-/*
-并查集
-*/
+// 并查集
 // type UnionFind struct {
 // 	parents []int
 // 	size    []int
 // 	count   int
 // }
 
-// func (u *UnionFind) init(N int) {
-// 	u.parents = make([]int, N)
-// 	u.size = make([]int, N)
-// 	for i := 0; i < N; i++ {
+// func NewUF(n int) *UnionFind {
+// 	var u UnionFind
+// 	u.parents = make([]int, n)
+// 	u.size = make([]int, n)
+// 	for i := 0; i < n; i++ {
 // 		u.parents[i] = i
 // 		u.size[i] = 1
 // 	}
-// 	u.count = N
+// 	u.count = n
+// 	return &u
 // }
 
 // func (u *UnionFind) union(node1, node2 int) {
@@ -55,12 +55,12 @@ func findCircleNum1(M [][]int) int {
 // 	if root1 == root2 {
 // 		return
 // 	}
-// 	if u.size[root1] > u.size[root2] {
-// 		u.parents[root2] = root1
-// 		u.size[root1] += u.size[root2]
-// 	} else {
+// 	if u.size[root1] < u.size[root2] {
 // 		u.parents[root1] = root2
 // 		u.size[root2] += u.size[root1]
+// 	} else {
+// 		u.parents[root2] = root1
+// 		u.size[root1] += u.size[root2]
 // 	}
 // 	u.count--
 // }
@@ -73,13 +73,16 @@ func findCircleNum1(M [][]int) int {
 // 	return node
 // }
 
+// func (u *UnionFind) isConnected(node1, node2 int) bool {
+// 	return u.find(node1) == u.find(node2)
+// }
+
 // func (u *UnionFind) getCount() int {
 // 	return u.count
 // }
 
 func findCircleNum2(M [][]int) int {
-	var uf UnionFind
-	uf.init(len(M))
+	uf := NewUF(len(M))
 	for i := range M {
 		for j := range M[i] {
 			if M[i][j] == 1 {

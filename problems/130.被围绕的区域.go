@@ -169,40 +169,54 @@ func solve3(board [][]byte) {
 }
 
 // @lc code=start
-/*
-并查集Union Find
-*/
+// 并查集Union Find
 // type UnionFind struct {
 // 	parents []int
+// 	size    []int
+// 	count   int
 // }
 
-// func (u *UnionFind) init(totalNodes int) {
-// 	u.parents = make([]int, totalNodes)
-// 	for i := range u.parents {
+// func NewUF(n int) *UnionFind {
+// 	var u UnionFind
+// 	u.parents = make([]int, n)
+// 	u.size = make([]int, n)
+// 	for i := 0; i < n; i++ {
 // 		u.parents[i] = i
+// 		u.size[i] = 1
 // 	}
+// 	u.count = n
+// 	return &u
 // }
 
 // func (u *UnionFind) union(node1, node2 int) {
 // 	root1, root2 := u.find(node1), u.find(node2)
-// 	if root1 != root2 {
-// 		u.parents[root2] = root1
+// 	if root1 == root2 {
+// 		return
 // 	}
+// 	if u.size[root1] < u.size[root2] {
+// 		u.parents[root1] = root2
+// 		u.size[root2] += u.size[root1]
+// 	} else {
+// 		u.parents[root2] = root1
+// 		u.size[root1] += u.size[root2]
+// 	}
+// 	u.count--
 // }
 
 // func (u *UnionFind) find(node int) int {
-// 	son := node
-// 	for u.parents[node] != node {
+// 	for node != u.parents[node] {
+// 		u.parents[node] = u.parents[u.parents[node]]
 // 		node = u.parents[node]
-// 	}
-// 	for son != node {
-// 		u.parents[son], son = node, u.parents[son]
 // 	}
 // 	return node
 // }
 
 // func (u *UnionFind) isConnected(node1, node2 int) bool {
 // 	return u.find(node1) == u.find(node2)
+// }
+
+// func (u *UnionFind) getCount() int {
+// 	return u.count
 // }
 
 func solve4(board [][]byte) {
@@ -222,8 +236,7 @@ func solve4(board [][]byte) {
 		}
 		return false
 	}
-	var uf UnionFind
-	uf.init(M*N + 1)
+	uf := NewUF(M*N + 1)
 	dummyNode := M * N
 	node := func(i, j int) int {
 		return i*N + j
